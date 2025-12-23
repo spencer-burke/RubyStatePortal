@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title><%= yield(:title) %> | Ruby State Portal</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="application-name" content="Ruby State Portal">
+        <meta name="mobile-web-app-capable" content="yes">
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>
+
+        <%= yield :head %>
+
+        <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+        <%= javascript_importmap_tags %>
+    </head>
+
+    <body>
+        <header class="container">
+            <%= yield :navbar %>
+        </header>
+
+        <main class="container">
+            <%= yield %>
+        </main>
+
+        <footer class="container">
+            <p>Built by Molten Digital</p>
+        </footer>
+
+    </body>
+</html>

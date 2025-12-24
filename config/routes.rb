@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get "login", to: "login#index", as: :login
+  get "login", to: "sessions#new", as: :login
   root "landing#index"
 
   resource :session

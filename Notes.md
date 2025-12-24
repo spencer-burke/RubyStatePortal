@@ -49,6 +49,10 @@
 - Picocss
 
 ## Current Working:
-- reroute the login button to sessions new
-- route the password form to the password store or whatever
-- add the layouts and partials to both of these controllers
+- now that the password/login/landing pages and forms are all wired up it's time to start building the app
+- decide what is on the manager dashboard
+- create data models for the parts
+- create poro for manager model
+- make rest controller for manager object
+- wire up hotwire components
+- explore the more literal dashboard option as well

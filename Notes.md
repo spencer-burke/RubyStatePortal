@@ -42,11 +42,13 @@
 ## Stack
 - Rails
 - Pundit
+- rolify
 - Hotwire
 - Pay
 - Grover(maybe)(some other pdf generation thing)
 - Picocss
 
 ## Current Working:
-- get the layout going
-- get the views and navbar for
+- reroute the login button to sessions new
+- route the password form to the password store or whatever
+- add the layouts and partials to both of these controllers

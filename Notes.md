@@ -57,6 +57,7 @@
 - create resident dashboard
 - from there build out the invite system with proper emails
 - also build out password reset
+- remove extra login after it got moved to rest route
 ## Next Working:
 - decide what is on the manager dashboard
 - create data models for the parts
@@ -64,3 +65,7 @@
 - make rest controller for manager object
 - wire up hotwire components
 - explore the more literal dashboard option as well
+## Current Notes:
+- policy being put in controller
+- you can stop people from querying endpoints with the require_auth from the rails 8 generator
+- you still need policies however to make sure other users don't get access to things from hotwire endpoint

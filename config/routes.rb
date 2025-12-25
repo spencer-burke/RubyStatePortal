@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get "manager_dashboard/index"
   get "login", to: "sessions#new", as: :login
   get "reset-password", to: "passwords#new", as: :new_password_reset
   root "landing#index"

@@ -7,3 +7,10 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+# ROLES is from the user model
+# Role is the table in the database
+# name is the column in the table
+User::ROLES.each do |role_name|
+  Role.find_or_create_by!(name: role_name.to_s)
+end

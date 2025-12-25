@@ -50,6 +50,14 @@
 
 ## Current Working:
 - now that the password/login/landing pages and forms are all wired up it's time to start building the app
+- create manager dashboard
+-- create a data model for property(add to it later with more migrations)
+-- create a poro that represents the manager object
+-- create the controller that will perform the "show" operation
+- create resident dashboard
+- from there build out the invite system with proper emails
+- also build out password reset
+## Next Working:
 - decide what is on the manager dashboard
 - create data models for the parts
 - create poro for manager model

@@ -50,6 +50,7 @@
 
 ## Current Working:
 - now that the password/login/landing pages and forms are all wired up it's time to start building the app
+- we can go one of two ways, either build the invite system, or build out a simple dashboard, then build invite system
 - create manager dashboard
 -- create a data model for property(add to it later with more migrations)
 -- create a poro that represents the manager object
@@ -57,7 +58,6 @@
 - create resident dashboard
 - from there build out the invite system with proper emails
 - also build out password reset
-- remove extra login after it got moved to rest route
 ## Next Working:
 - decide what is on the manager dashboard
 - create data models for the parts

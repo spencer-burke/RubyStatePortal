@@ -14,3 +14,20 @@
 User::ROLES.each do |role_name|
   Role.find_or_create_by!(name: role_name.to_s)
 end
+
+puts "Seeding Users"
+
+# create users
+users = [
+  { email: "manager@rubystateportal.net", role: :manager },
+  { email: "developer@rubystateportal.net", role: :developer },
+  { email: "resident@rubystateportal.net", role: :resident }
+]
+
+users.each do |user_data|
+  User.find_or_create_by!(email_address: user_data[:email]) do |u|
+    u.password = "Password1"
+    u.add_role(user_data[:role])
+    puts "Created #{user_data[:role]}: #{user_data[:email]}"
+  end
+end

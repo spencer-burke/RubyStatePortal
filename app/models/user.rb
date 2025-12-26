@@ -4,8 +4,8 @@ class User < ApplicationRecord
   has_many :sessions, dependent: :destroy
   normalizes :email_address, with: ->(e) { e.strip.downcase }
 
-  ROLES = %w[resident manager developer].freeze
-  ROLES = [ :resident, :manager, :developer ].freeze
+  # use ||= operator to tell rails/ruby to only make the values if they don't exist
+  ROLES ||= [ :resident, :manager, :developer ].freeze
 
   ROLES.each do |role_name|
     define_method("#{role_name}?") do

@@ -65,6 +65,7 @@
 - make rest controller for manager object
 - wire up hotwire components
 - explore the more literal dashboard option as well
+- add flashes to layouts at some point
 ## Current Notes:
 - policy being put in controller
 - you can stop people from querying endpoints with the require_auth from the rails 8 generator

@@ -49,23 +49,7 @@
 - Picocss
 
 ## Current Working:
-- now that the password/login/landing pages and forms are all wired up it's time to start building the app
-- we can go one of two ways, either build the invite system, or build out a simple dashboard, then build invite system
-- create manager dashboard
--- create a data model for property(add to it later with more migrations)
--- create a poro that represents the manager object
--- create the controller that will perform the "show" operation
-- create resident dashboard
-- from there build out the invite system with proper emails
-- also build out password reset
-- make the navbar have a logout button
-## Next Working:
-- decide what is on the manager dashboard
-- create data models for the parts
-- create poro for manager model
-- make rest controller for manager object
-- wire up hotwire components
-- explore the more literal dashboard option as well
+- scaffold out properties, units, and then pivot table for users
 - add flashes to layouts at some point
 ## Current Notes:
 - policy being put in controller

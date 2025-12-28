@@ -34,8 +34,8 @@ module Authentication
       redirect_to new_session_path
     end
 
-    def after_authentication_url
-      session.delete(:return_to_after_authenticating) || root_url
+    def after_authentication_url(user)
+      session.delete(:return_to_after_authenticating) || new_url(user)
     end
 
     def start_new_session_for(user)
@@ -48,5 +48,15 @@ module Authentication
     def terminate_session
       Current.session.destroy
       cookies.delete(:session_id)
+    end
+
+    def new_url(user)
+      if user&.manager? || user&.developer?
+        manager_dashboard_path
+      elsif user&.resident?
+        resident_dashboard_path
+      else
+        root_path
+      end
     end
 end

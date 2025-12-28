@@ -1,0 +1,2 @@
+class ResidentDashboardController < ApplicationController
+end

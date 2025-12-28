@@ -58,6 +58,7 @@
 - create resident dashboard
 - from there build out the invite system with proper emails
 - also build out password reset
+- make the navbar have a logout button
 ## Next Working:
 - decide what is on the manager dashboard
 - create data models for the parts

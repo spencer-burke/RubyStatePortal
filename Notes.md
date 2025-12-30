@@ -55,3 +55,19 @@
 - policy being put in controller
 - you can stop people from querying endpoints with the require_auth from the rails 8 generator
 - you still need policies however to make sure other users don't get access to things from hotwire endpoint
+## Features Required:
+- password reset system
+- invite system
+- property/units system
+- maintenance request system
+- content packet system
+- communication system
+## Order of Features to be Built:
+- password reset system
+- property system
+- invite system
+- content packet system
+- communication system
+- maintenance tracking system
+- report generation system
+- official design system

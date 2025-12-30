@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include Authentication
   include Pundit::Authorization
 
-  # tell rails to run some code if pundit raises an error
+  # Tell rails to run some code if pundit raises an error
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
   allow_browser versions: :modern

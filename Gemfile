@@ -52,6 +52,12 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+
+  # Letter Opener
+  gem "letter_opener"
+
+  # Solargraph
+  gem "solargraph", require: false
 end
 
 group :development do

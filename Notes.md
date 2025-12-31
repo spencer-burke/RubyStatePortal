@@ -50,20 +50,19 @@
 
 ## Current Working:
 - scaffold out properties, units, and then pivot table for users
+- make pundit class for invitation workflow
 - add flashes to layouts at some point
 ## Current Notes:
 - policy being put in controller
 - you can stop people from querying endpoints with the require_auth from the rails 8 generator
 - you still need policies however to make sure other users don't get access to things from hotwire endpoint
 ## Features Required:
-- password reset system
 - invite system
 - property/units system
 - maintenance request system
 - content packet system
 - communication system
 ## Order of Features to be Built:
-- password reset system
 - property system
 - invite system
 - content packet system
@@ -71,3 +70,9 @@
 - maintenance tracking system
 - report generation system
 - official design system
+## Features Done:
+- password reset system
+## Invite Feature Flow
+- new controller InvitationsController
+- Invitations#new new action receives the form submission and then creates the token and sends the email
+- Inivitations#show show action is what the user lands on to show the page, will set the password and or create the user

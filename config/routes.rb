@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get "invitations/show", to: "invitations_controller#show", as: :invitation
+  get "invitations/new", to: "invitations_controller#new", as: :create_invitation
   get "manager-dashboard", to: "manager_dashboard#index", as: :manager_dashboard
   get "resident-dashboard", to: "resident_dashboard#index", as: :resident_dashboard
   get "login", to: "sessions#new", as: :login
@@ -6,6 +8,7 @@ Rails.application.routes.draw do
   root "landing#index"
 
   resource :session
+  resources :invitations
   resources :passwords, param: :token
 
   get "up" => "rails/health#show", as: :rails_health_check

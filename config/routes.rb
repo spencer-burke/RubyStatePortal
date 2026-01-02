@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
 
   # Invitations
-  resources :invitations, only: [:create], param: :token do
+  resources :invitations, only: :create, param: :token do
     member do
       get :show
       post :accept

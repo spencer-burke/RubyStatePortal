@@ -1,15 +1,23 @@
 Rails.application.routes.draw do
-  get "invitations/show", to: "invitations_controller#show", as: :invitation
-  get "invitations/new", to: "invitations_controller#new", as: :create_invitation
-  get "manager-dashboard", to: "manager_dashboard#index", as: :manager_dashboard
-  get "resident-dashboard", to: "resident_dashboard#index", as: :resident_dashboard
-  get "login", to: "sessions#new", as: :login
-  get "reset-password", to: "passwords#new", as: :new_password_reset
   root "landing#index"
 
+  # Dashboards
+  get "manager-dashboard", to: "manager_dashboard#index", as: :manager_dashboard
+  get "resident-dashboard", to: "resident_dashboard#index", as: :resident_dashboard
+
+  # Auth
+  get "login", to: "sessions#new", as: :login
+  get "reset-password", to: "passwords#new", as: :new_password_reset
   resource :session
-  resources :invitations
   resources :passwords, param: :token
+
+  # Invitations
+  resources :invitations, only: [:create], param: :token do
+    member do
+      get :show
+      post :accept
+    end
+  end
 
   get "up" => "rails/health#show", as: :rails_health_check
 end

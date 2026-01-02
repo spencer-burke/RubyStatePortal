@@ -76,3 +76,6 @@
 - new controller InvitationsController
 - Invitations#new new action receives the form submission and then creates the token and sends the email
 - Inivitations#show show action is what the user lands on to show the page, will set the password and or create the user
+
+## Time Spent:
+- 14 hours

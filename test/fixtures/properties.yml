@@ -2,8 +2,14 @@
 
 one:
   name: MyString
-  units_count: 1
+  street_address: MyString
+  city: MyString
+  state: MyString
+  zip_code: MyString
 
 two:
   name: MyString
-  units_count: 1
+  street_address: MyString
+  city: MyString
+  state: MyString
+  zip_code: MyString

@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  token: MyString
+  property: one
+  unit: one
+  expires_at: 2026-01-02 15:40:58
+
+two:
+  email: MyString
+  token: MyString
+  property: two
+  unit: two
+  expires_at: 2026-01-02 15:40:58

@@ -10,7 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_12_25_053225) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_02_234061) do
+  create_table "invitations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "email"
+    t.datetime "expires_at"
+    t.integer "property_id", null: false
+    t.string "token"
+    t.integer "unit_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_invitations_on_property_id"
+    t.index ["token"], name: "index_invitations_on_token"
+    t.index ["unit_id"], name: "index_invitations_on_unit_id"
+  end
+
+  create_table "maintenance_requests", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.integer "property_id", null: false
+    t.string "status"
+    t.integer "unit_id", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["property_id"], name: "index_maintenance_requests_on_property_id"
+    t.index ["unit_id"], name: "index_maintenance_requests_on_unit_id"
+    t.index ["user_id"], name: "index_maintenance_requests_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.integer "property_id", null: false
+    t.integer "unit_id", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["property_id"], name: "index_messages_on_property_id"
+    t.index ["unit_id"], name: "index_messages_on_unit_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.string "city"
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.string "state"
+    t.string "street_address"
+    t.datetime "updated_at", null: false
+    t.string "zip_code"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name"
@@ -31,12 +79,25 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_25_053225) do
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
 
+  create_table "units", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name"
+    t.string "number"
+    t.integer "property_id", null: false
+    t.datetime "updated_at", null: false
+    t.index ["property_id"], name: "index_units_on_property_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email_address", null: false
     t.string "password_digest", null: false
+    t.integer "property_id"
+    t.integer "unit_id"
     t.datetime "updated_at", null: false
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
+    t.index ["property_id"], name: "index_users_on_property_id"
+    t.index ["unit_id"], name: "index_users_on_unit_id"
   end
 
   create_table "users_roles", id: false, force: :cascade do |t|
@@ -47,5 +108,16 @@ ActiveRecord::Schema[8.1].define(version: 2025_12_25_053225) do
     t.index ["user_id"], name: "index_users_roles_on_user_id"
   end
 
+  add_foreign_key "invitations", "properties"
+  add_foreign_key "invitations", "units"
+  add_foreign_key "maintenance_requests", "properties"
+  add_foreign_key "maintenance_requests", "units"
+  add_foreign_key "maintenance_requests", "users"
+  add_foreign_key "messages", "properties"
+  add_foreign_key "messages", "units"
+  add_foreign_key "messages", "users"
   add_foreign_key "sessions", "users"
+  add_foreign_key "units", "properties"
+  add_foreign_key "users", "properties"
+  add_foreign_key "users", "units"
 end

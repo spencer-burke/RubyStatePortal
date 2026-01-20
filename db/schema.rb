@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2025_12_25_053225) do
+ActiveRecord::Schema[8.1].define(version: 2026_01_19_224707) do
+  create_table "properties", force: :cascade do |t|
+    t.string "address", null: false
+    t.string "address_extension"
+    t.string "city", null: false
+    t.string "country", null: false
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.string "state", null: false
+    t.string "type", null: false
+    t.datetime "updated_at", null: false
+    t.index ["type"], name: "index_properties_on_type"
+  end
+
   create_table "roles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name"

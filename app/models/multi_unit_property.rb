@@ -1,2 +1,2 @@
-class MultiUnitProperty < ApplicationRecord
+class MultiUnitProperty < Property
 end

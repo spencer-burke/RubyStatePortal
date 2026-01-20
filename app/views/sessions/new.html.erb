@@ -5,7 +5,7 @@
 <% content_for :navbar, render("navbar") %>
 
 <h1>Login Page</h1>
-<p>Welcome to the Login Page<p>
+<p>Welcome to the Login Page</p>
 
 <%= form_with url: session_path do |form| %>
   <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>

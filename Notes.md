@@ -13,3 +13,6 @@
 - Make proper views
 - Seed properties
 - Make proper listing with hotwire
+
+# TODO:
+- fix broken crud form, the replace doesn't work properly(it breaks after a single edit)

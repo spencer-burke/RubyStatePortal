@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resource :session
   resources :passwords, param: :token
 
+  # Properties
+  resources :properties
+
   # Invitations
   resources :invitations, only: :create, param: :token do
     member do

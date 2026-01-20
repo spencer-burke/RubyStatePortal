@@ -1,6 +1,11 @@
-class ManagerDashboardPolicy < ApplicationPolicy
+class PropertiesPolicy < ApplicationPolicy
+
   def index?
-    manager? || developer?
+    manager?
+  end
+
+  def edit
+    manager?
   end
 
   class Scope < ApplicationPolicy::Scope

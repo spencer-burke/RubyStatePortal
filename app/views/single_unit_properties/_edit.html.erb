@@ -1,0 +1,48 @@
+<%= turbo_frame_tag "modal" do %>
+  <dialog open>
+    <article>
+      <%= form_with model: single_unit_property, url: property_path(single_unit_property), data: { turbo_frame: "_top" } do |f| %>
+        <%= f.hidden_field :type, value: 'SingleUnitProperty' %>
+
+        <label>
+          Name
+          <%= f.text_field :name, required: true, placeholder: "Property name" %>
+        </label>
+
+        <label>
+          Address
+          <%= f.text_field :address, required: true, placeholder: "Street address" %>
+        </label>
+
+        <label>
+          Unit/Apt #
+          <%= f.text_field :address_extension, placeholder: "Unit 101, Apt 2B, etc." %>
+        </label>
+
+        <div class="grid">
+          <label>
+            City
+            <%= f.text_field :city, required: true, placeholder: "City" %>
+          </label>
+
+          <label>
+            State
+            <%= f.text_field :state, required: true, placeholder: "State" %>
+          </label>
+        </div>
+
+        <label>
+          Country
+          <%= f.text_field :country, required: true, placeholder: "Country" %>
+        </label>
+
+        <footer>
+          <%= f.submit "Update Property", role: "button" %>
+          <button type="button" data-action="click->manager-dashboard#closeModal" class="secondary">
+              Cancel
+          </button>
+        </footer>
+      <% end %>
+    </article>
+  </dialog>
+<% end %>

@@ -13,6 +13,13 @@ class PropertiesController < ApplicationController
   end
 
   def edit
+    @property = Property.find(params[:id])
+
+    if @property.is_a?(SingleUnitProperty)
+      render partial: "single_unit_properties/edit", locals: { single_unit_property: @property }
+    elsif @property.is_a?(MultiUnitProperty)
+      render partial: "multi_unit_properties/edit", locals: { multi_unit_property: @property }
+    end
   end
 
   def update

@@ -1,5 +1,6 @@
 <% content_for :title, "Manager Dashboard" %>
 <% content_for :navbar, render("navbar") %>
+<% content_for :controllers, "manager-dashboard" %>
 
 <h1>Manager Dashboard</h1>
 <p>Welcome to the Manager Dashboard</p>
@@ -7,3 +8,5 @@
 <%= turbo_frame_tag "properties_list", src: properties_path do %>
     <p>Loading properties...</p>
 <% end %>
+
+<%= turbo_frame_tag "modal" %>

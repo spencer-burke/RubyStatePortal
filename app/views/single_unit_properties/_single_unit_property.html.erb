@@ -2,4 +2,5 @@
   <h3><%= single_unit_property.name %> (Single Unit)</h3>
   <p><%= single_unit_property.address %>, <%= single_unit_property.address_extension %></p>
   <p><%= single_unit_property.city %>, <%= single_unit_property.state %></p>
+  <%= link_to "Edit", edit_property_path(single_unit_property), data: { turbo_frame: "modal" } %>
 </article>

@@ -1,6 +1,6 @@
 <article class="property-card multi-unit">
-  <h3><%= multi_unit_property.name %> (Complex)</h3>
+  <h3><%= multi_unit_property.name %> (Multi Unit)</h3>
   <p><%= multi_unit_property.address %></p>
   <p><%= multi_unit_property.city %>, <%= multi_unit_property.state %></p>
-  <span class="badge">Multi-Unit Building</span>
+  <%= link_to "Edit", edit_property_path(multi_unit_property), data: { turbo_frame: "modal" } %>
 </article>

@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "modal" do %>
   <dialog open>
     <article>
-      <%= form_with model: single_unit_property, url: property_path(single_unit_property), data: { turbo_frame: "_top" } do |f| %>
+      <%= form_with model: single_unit_property, url: property_path(single_unit_property), method: :patch do |f| %>
         <%= f.hidden_field :type, value: 'SingleUnitProperty' %>
 
         <label>

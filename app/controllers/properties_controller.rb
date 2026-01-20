@@ -23,8 +23,20 @@ class PropertiesController < ApplicationController
   end
 
   def update
+    @property = Property.find(params[:id])
+    if @property.update(property_params)
+      respond_to do |format|
+        format.turbo_stream
+      end
+    end
   end
 
   def destroy
   end
+
+  private
+
+    def property_params
+      params.require(@property.model_name.param_key).permit(:name, :address, :city, :state, :country, :address_extension)
+    end
 end

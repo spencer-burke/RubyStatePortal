@@ -1,8 +1,8 @@
 <%= turbo_frame_tag dom_id(multi_unit_property) do %>
     <article class="property-card multi-unit">
-    <h3><%= multi_unit_property.name %> (Multi Unit)</h3>
-    <p><%= multi_unit_property.address %></p>
-    <p><%= multi_unit_property.city %>, <%= multi_unit_property.state %></p>
-    <%= link_to "Edit", edit_property_path(multi_unit_property), data: { turbo_frame: "modal" } %>
+        <h3><%= multi_unit_property.name %> (Multi Unit)</h3>
+        <p><%= multi_unit_property.address %></p>
+        <p><%= multi_unit_property.city %>, <%= multi_unit_property.state %></p>
+        <%= button_to "Edit", edit_property_path(multi_unit_property), method: :get, data: { turbo_frame: "modal"}, class: "button" %>
     </article>
 <% end %>

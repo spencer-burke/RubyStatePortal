@@ -1,0 +1,43 @@
+<%= turbo_frame_tag "modal" do %>
+    <dialog open>
+        <article>
+          <%= form_with model: multi_unit_property, url: properties_path do |f| %>
+            <%= f.hidden_field :type, value: 'MultiUnitProperty' %>
+
+            <label>
+                Name
+                <%= f.text_field :name, required: true %>
+            </label>
+
+            <label>
+                Address
+                <%= f.text_field :address, required: true %>
+            </label>
+
+            <div class="grid">
+            <label>
+                City
+                <%= f.text_field :city, required: true %>
+            </label>
+
+            <label>
+                State
+                <%= f.text_field :state, required: true %>
+            </label>
+            </div>
+
+            <label>
+                Country
+                <%= f.text_field :country, required: true %>
+            </label>
+
+            <footer>
+              <%= f.submit "Create Complex", role: "button" %>
+              <button type="button" data-action="click->manager-dashboard#closeModal" class="secondary">
+                  Cancel
+              </button>
+            </footer>
+          <% end %>
+        </article>
+    </dialog>
+<% end %>

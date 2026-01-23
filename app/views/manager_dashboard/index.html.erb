@@ -27,16 +27,20 @@ Create Property
 
         <fieldset>
           <%= button_to "Create Single Unit",
-                      new_property_path(type: 'SingleUnitProperty'),
+                      new_property_path,
+                      params: { type: "SingleUnitProperty"},
                       data: { turbo_frame: "modal", action: "click->manager-dashboard#closePropertyModal" },
                       class: "outline",
+                      method: :get,
                       role: "button" %>
 
           <%= button_to "Create Multi Unit",
-                      new_property_path(type: 'MultiUnitProperty'),
-                      data: { turbo_frame: "modal", action: "click->manager-dashboard#closePropertyModal" },
-                      class: "outline",
-                      role: "button" %>
+                    new_property_path,
+                    params: { type: "MultiUnitProperty" },
+                    data: { turbo_frame: "modal", action: "click->manager-dashboard#closePropertyModal"},
+                    class: "outline",
+                    method: :get,
+                    role: "button" %>
         </fieldset>
 
         <footer>

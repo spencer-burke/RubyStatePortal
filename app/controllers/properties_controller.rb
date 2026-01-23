@@ -14,14 +14,28 @@ class PropertiesController < ApplicationController
     property_type = params[:type]
 
     if property_type == "SingleUnitProperty"
-      render partial: "single_unit_properties/new"
+      @property = SingleUnitProperty.new
+      render partial: "single_unit_properties/new", locals: { single_unit_property: @property }
     elsif property_type == "MultiUnitProperty"
-      render partial: "multi_unit_properties/new"
+      @property = MultiUnitProperty.new
+      render partial: "multi_unit_properties/new", locals: { multi_unit_property: @property }
     end
   end
 
   def create
     authorize :properties
+
+    if params[:multi_unit_property]
+      @property = MultiUnitProperty.new(property_params)
+    elsif params[:single_unit_property]
+      @property = SingleUnitProperty.new(property_params)
+    end
+
+    if @property.save
+      respond_to do |format|
+        format.turbo_stream
+      end
+    end
   end
 
   def edit

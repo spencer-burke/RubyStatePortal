@@ -18,11 +18,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def user_not_authorized
-    # set flash message
-    flash[:alert] = "You are not authorized to perform this action"
+    def user_not_authorized
+      # set flash message
+      flash[:alert] = "You are not authorized to perform this action"
 
-    # send them back from where they came, or to the landing
-    redirect_back_or_to(root_path)
-  end
+      # send them back from where they came, or to the landing
+      redirect_back_or_to(root_path)
+    end
 end

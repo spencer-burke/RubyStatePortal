@@ -1,18 +1,25 @@
 class PropertiesController < ApplicationController
   def index
+    authorize :properties
     @properties = Property.all
   end
 
   def show
+    authorize :properties
   end
 
   def new
+    authorize :properties
   end
 
   def create
+    authorize :properties
+
   end
 
   def edit
+    authorize :properties
+
     @property = Property.find(params[:id])
 
     if @property.is_a?(SingleUnitProperty)
@@ -23,6 +30,8 @@ class PropertiesController < ApplicationController
   end
 
   def update
+    authorize :properties
+
     @property = Property.find(params[:id])
     if @property.update(property_params)
       respond_to do |format|

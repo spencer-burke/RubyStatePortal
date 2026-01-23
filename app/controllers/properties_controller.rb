@@ -10,11 +10,18 @@ class PropertiesController < ApplicationController
 
   def new
     authorize :properties
+
+    property_type = params[:type]
+
+    if property_type == "SingleUnitProperty"
+      render partial: "single_unit_properties/new"
+    elsif property_type == "MultiUnitProperty"
+      render partial: "multi_unit_properties/new"
+    end
   end
 
   def create
     authorize :properties
-
   end
 
   def edit
@@ -46,6 +53,6 @@ class PropertiesController < ApplicationController
   private
 
     def property_params
-      params.require(@property.model_name.param_key).permit(:name, :address, :city, :state, :country, :address_extension)
+      params.require(@property.model_name.param_key).permit(:name, :address, :city, :state, :country, :address_extension, :type)
     end
 end

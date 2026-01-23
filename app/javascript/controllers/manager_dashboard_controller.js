@@ -2,6 +2,8 @@ import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="manager-dashboard"
 export default class extends Controller {
+  static targets = ["dialog"];
+
   connect() {
     // Create a bound function reference that we can use in both connect and disconnect.
     this.boundCloseOnEscape = this.closeOnEscape.bind(this);
@@ -25,5 +27,13 @@ export default class extends Controller {
       modalFrame.removeAttribute("src");
       modalFrame.innerHTML = "";
     }
+  }
+
+  showPropertyModal() {
+    this.dialogTarget.showModal();
+  }
+
+  closePropertyModal() {
+    this.dialogTarget.close();
   }
 }

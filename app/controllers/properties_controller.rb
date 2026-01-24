@@ -25,13 +25,13 @@ class PropertiesController < ApplicationController
   def create
     authorize :properties
 
-    if params[:multi_unit_property]
-      @property = MultiUnitProperty.new(property_params)
-    elsif params[:single_unit_property]
-      @property = SingleUnitProperty.new(property_params)
+    if params[:single_unit_property]
+      @property = SingleUnitProperty.new(single_unit_property_params)
+    elsif params[:multi_unit_property]
+        @property = MultiUnitProperty.new(multi_unit_property_params)
     end
 
-    if @property.save
+    if @property&.save
       respond_to do |format|
         format.turbo_stream
       end
@@ -54,7 +54,8 @@ class PropertiesController < ApplicationController
     authorize :properties
 
     @property = Property.find(params[:id])
-    if @property.update(property_params)
+
+    if @property&.update(property_params)
       respond_to do |format|
         format.turbo_stream
       end
@@ -62,11 +63,19 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
+    authorize :properties
   end
 
   private
+    def single_unit_property_params
+      params.require(:single_unit_property).permit(:name, :address, :city, :state, :country, :address_extension)
+    end
+
+    def multi_unit_property_params
+      params.require(:multi_unit_property).permit(:name, :address, :city, :state, :country, :address_extension)
+    end
 
     def property_params
-      params.require(@property.model_name.param_key).permit(:name, :address, :city, :state, :country, :address_extension, :type)
+      params.require(@property.model_name.param_key).permit(:name, :address, :city, :state, :country, :address_extension)
     end
 end

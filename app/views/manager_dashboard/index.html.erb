@@ -2,15 +2,16 @@
 <% content_for :navbar, render("navbar") %>
 <% content_for :controllers, "manager-dashboard" %>
 
-<h1>Manager Dashboard</h1>
-<p>Welcome to the Manager Dashboard</p>
+<div style="display:flex; justify-content:space-between;">
+    <h1>Manager Dashboard</h1>
 
-<button
-    id="open_property_create_modal"
-    data-action="click->manager-dashboard#showPropertyModal"
->
-Create Property
-</button>
+    <button
+        id="open_property_create_modal"
+        data-action="click->manager-dashboard#showPropertyModal"
+    >
+    Create Property
+    </button>
+</div>
 
 <%= turbo_frame_tag "properties_list", src: properties_path do %>
     <p>Loading properties...</p>

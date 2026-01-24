@@ -64,6 +64,14 @@ class PropertiesController < ApplicationController
 
   def destroy
     authorize :properties
+
+    @property = Property.find(params[:id])
+
+    if @property&.destroy
+      respond_to do |format|
+        format.turbo_stream
+      end
+    end
   end
 
   private

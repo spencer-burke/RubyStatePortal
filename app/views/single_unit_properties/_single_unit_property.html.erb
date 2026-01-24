@@ -4,5 +4,9 @@
         <p><%= single_unit_property.address %>, <%= single_unit_property.address_extension %></p>
         <p><%= single_unit_property.city %>, <%= single_unit_property.state %></p>
         <%= button_to "Edit", edit_property_path(single_unit_property), method: :get, data: { turbo_frame: "modal" }, class: "button" %>
+        <%= button_to "Delete", property_path(single_unit_property),
+            method: :delete,
+            data: { turbo_confirm: "Are you sure you want to delete this property?" },
+            form: { data: { turbo_frame: "properties_list" } } %>
     </article>
 <% end %>

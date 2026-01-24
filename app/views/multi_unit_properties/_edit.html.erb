@@ -2,7 +2,7 @@
   <dialog open>
     <article>
         <%= form_with model: multi_unit_property, url: property_path(multi_unit_property), method: :patch do |f| %>
-            <%= f.hidden_field :type, value: 'multi_unit_property' %>
+            <%= f.hidden_field :type, value: 'MultiUnitProperty' %>
 
             <label>
             Name

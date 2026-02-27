@@ -1,5 +1,8 @@
 # Ruby State Portal
 
+# What Is This Document:
+This is where development is tracked
+
 # Current Working
 - Add create and delete for the property crud
 - Then start working on maintenance requests

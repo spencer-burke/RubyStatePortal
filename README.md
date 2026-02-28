@@ -17,3 +17,8 @@ The family member decided to move to a real estate management company closer to 
 ## Other Notes
 Since this was a client project, there is no signup.
 The inhabitants were going to be invited into the system by the managers, and the managers would be seeded into the system at deployment.
+## Codebase Notes
+- Current User in application controller
+- Rescue from in application controller
+- Layer one metaprogramming in user model
+- Layer two metaprogramming in application policy

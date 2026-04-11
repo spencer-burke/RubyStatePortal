@@ -28,7 +28,7 @@ class PropertiesController < ApplicationController
     if params[:single_unit_property]
       @property = SingleUnitProperty.new(single_unit_property_params)
     elsif params[:multi_unit_property]
-        @property = MultiUnitProperty.new(multi_unit_property_params)
+      @property = MultiUnitProperty.new(multi_unit_property_params)
     end
 
     if @property&.save

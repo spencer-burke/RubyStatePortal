@@ -1,6 +1,7 @@
 class PropertiesController < ApplicationController
   def index
     authorize :properties
+
     @properties = Property.all
   end
 

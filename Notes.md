@@ -12,3 +12,9 @@ This is where development is tracked
 - Add validation to the edit form
 - Fix edit link to be a button
 - Finish property crud
+
+# FIXING:
+- Get rid of rolify
+- Probably delete the pundit classes for now
+- Index/Audit all pages in app
+- Probably simplify the property models

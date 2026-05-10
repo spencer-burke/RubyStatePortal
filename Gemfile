@@ -74,4 +74,4 @@ end
 gem "pundit", "~> 2.5"
 gem "rolify", "~> 6.0"
 
-gem "jumper_cable", "~> 0.1.0"
+gem "jumper_cable", "~> 0.1.1"

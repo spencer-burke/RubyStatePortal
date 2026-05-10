@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: "pages/landing_page#page"
   page :login
   page :password_reset
+  page :invitation_signup
   page :manager_dashboard
   page :resident_dashboard
   page :dev_dashboard
@@ -15,8 +16,8 @@ Rails.application.routes.draw do
   # get "resident-dashboard", to: "resident_dashboard#index", as: :resident_dashboard
 
   # Auth
-  #get "login", to: "sessions#new", as: :login
-  #get "reset-password", to: "passwords#new", as: :new_password_reset
+  # get "login", to: "sessions#new", as: :login
+  # get "reset-password", to: "passwords#new", as: :new_password_reset
   resource :session
   resources :passwords, param: :token
 
@@ -30,5 +31,4 @@ Rails.application.routes.draw do
       post :accept
     end
   end
-
 end
